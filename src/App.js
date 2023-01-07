@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+import NewCreditCard from './components/NewCreditCard/NewCreditCard';
+
 import './App.css';
 
 function App() {
+
+  const addCreditCardHandler = (creditCardData) => {
+    fetch('http://localhost:8080/creditcard', {
+            method : 'POST',
+            body : JSON.stringify(creditCardData),
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8'
+           }
+    }).then((response) => response.json()).catch((err) => {
+      console.log(err.message)
+    });   
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <NewCreditCard onAddCreditCard={addCreditCardHandler}/>
+    </div>    
   );
 }
 

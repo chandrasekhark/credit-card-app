@@ -1,0 +1,26 @@
+.new-card__controles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.new-card__controle label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+  
+.new-card__controle input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+}
+  
+.new-card__actions {
+    text-align: right;
+}
