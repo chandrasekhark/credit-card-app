@@ -12,7 +12,11 @@ const CreditCardForm = (props) => {
     };
 
     const cardNumberChangedHandler = (event) => {
-        setEnteredCardNumber(event.target.value);
+        if(event.target.value.length < 20) {
+            setEnteredCardNumber(event.target.value);
+        } else {
+            window.alert("Card Number shouldn't exceed 19 digits");
+        }
     };
 
     const limitChangedHandler = (event) => {
@@ -25,7 +29,8 @@ const CreditCardForm = (props) => {
         const creditCardData = {
             name : enteredName,
             cardNumber : enteredCardNumber,
-            limit : enteredLimit
+            limit : enteredLimit,
+            balance: 0
         };
 
         props.onSaveCreditCardData(creditCardData);
